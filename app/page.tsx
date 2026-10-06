@@ -4,9 +4,9 @@ import { Mark } from "./Mark";
 import Switchboard from "./Switchboard";
 import { AGENTS, type AgentId } from "./scenarios";
 
-const INSTALL = "uvx agent-cowork-memory setup";
+const INSTALL = "npx -y agent-cowork-memory setup";
 const GITHUB = "https://github.com/rxthlessbeats/agent-cowork-memory";
-const PYPI = "https://pypi.org/project/agent-cowork-memory/";
+const NPM = "https://www.npmjs.com/package/agent-cowork-memory";
 const ORDER: AgentId[] = ["claude", "codex", "cursor", "opencode"];
 
 const RELAY = ["briefs the team", "holds rateLimit.ts", "writes the tests", "updates the docs"];
@@ -70,7 +70,7 @@ export default function Page() {
         <header className="hero">
           <p className="hero-eyebrow">
             <span className="pulse" aria-hidden="true" />
-            MCP server + CLI for coding agents<span className="hide-sm"> · v0.2.3</span>
+            MCP server + CLI for coding agents<span className="hide-sm"> · v0.3.0</span>
           </p>
           <div className="hero-top">
             <h1 className="hero-title">
@@ -188,24 +188,20 @@ export default function Page() {
             <div className="foot-install">
               <Copy text={INSTALL} className="cmd-xl" />
               <dl className="foot-alt">
-                <dt>pip</dt>
+                <dt>manual</dt>
                 <dd>
-                  <Copy text="pip install agent-cowork-memory" />
-                </dd>
-                <dt>Claude Code</dt>
-                <dd>
-                  <Copy text="claude mcp add -s user acm -- uvx agent-cowork-memory mcp --harness claude" />
+                  <Copy text="npx -y agent-cowork-memory mcp --harness claude" />
                 </dd>
               </dl>
-              <p className="foot-note">Restart your agents afterwards. <Link href="/docs#setup">Read the setup guide.</Link></p>
+              <p className="foot-note">Needs Node 24 or newer. Setup adds ACM to every agent it finds. Restart them afterwards. <Link href="/docs#setup">Read the setup guide.</Link></p>
             </div>
           </div>
           <div className="foot-links">
             <a href={GITHUB}>GitHub ↗</a>
-            <a href={PYPI}>PyPI ↗</a>
+            <a href={NPM}>npm ↗</a>
             <Link href="/docs">Docs</Link>
             <span>MIT license</span>
-            <span>Python 3.11+</span>
+            <span>Node 24+</span>
           </div>
         </footer>
       </main>

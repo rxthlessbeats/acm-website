@@ -4,7 +4,7 @@ import { useState } from "react";
 import { TOOL_DOCS } from "./tool-docs";
 
 export function Tools() {
-  const [on, setOn] = useState(3);
+  const [on, setOn] = useState(0);
   const { name, call, result } = TOOL_DOCS[on];
   return (
     <div className="tools-grid">

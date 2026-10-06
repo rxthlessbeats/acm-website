@@ -6,7 +6,7 @@ import { TOOL_DOCS } from "../tool-docs";
 
 export const metadata: Metadata = {
   title: "Docs · ACM",
-  description: "Set up Agent Cowork Memory, continue work across agents, delegate tasks, and use all eight MCP tools.",
+  description: "Set up Agent Cowork Memory, continue work across agents, delegate tasks, and use all seven MCP tools.",
   openGraph: {
     title: "Docs · ACM",
     description: "Setup, workflows and the ACM MCP tool reference.",
@@ -45,18 +45,15 @@ export default function Docs() {
           <div className="docs-content">
             <section id="setup" className="doc-section">
               <h2>Setup</h2>
-              <p>You need Python 3.11+ and <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>. Run:</p>
-              <Copy text="uvx agent-cowork-memory setup" />
-              <p>Setup configures Codex, Cursor and OpenCode. Add ACM to Claude Code separately:</p>
-              <Copy text="claude mcp add -s user acm -- uvx agent-cowork-memory mcp --harness claude" />
-              <p>Restart your agents so they load the MCP server. Open them in the same project to share its chats, tasks and notes.</p>
+              <p>You need <a href="https://nodejs.org">Node 24</a> or newer. Run:</p>
+              <Copy text="npx -y agent-cowork-memory setup" />
+              <p>Setup adds ACM to Cursor, and to Codex, Claude Code, and OpenCode when they are installed. It says which it skipped. Installed one later? Run setup again. Restart your agents, and ACM is available in every project. Each agent starts ACM through npx, which runs the latest release when the npm registry answers within 3 seconds.</p>
+              <p>Coming from 0.2? 0.3 starts a fresh database (<code>~/.agent-cowork-memory/acm.sqlite3</code>). 0.2&apos;s notes stay in <code>state.sqlite3</code>, untouched, and are not carried over.</p>
               <details className="doc-details">
-                <summary>Install with pip or configure the server manually</summary>
-                <p>Install the CLI with pip:</p>
-                <Copy text="pip install agent-cowork-memory" />
+                <summary>Configure the server manually</summary>
                 <p>Register this stdio server in your agent&apos;s MCP settings, replacing <code>codex</code> with your agent&apos;s name:</p>
-                <pre><code>{"acm mcp --harness codex"}</code></pre>
-                <p>Current harness names are <code>codex</code>, <code>claude</code>, <code>cursor</code> and <code>opencode</code>. More integrations are planned.</p>
+                <Copy text="npx -y agent-cowork-memory mcp --harness codex" />
+                <p>Current harness names are <code>codex</code>, <code>claude</code>, <code>cursor</code> and <code>opencode</code>.</p>
               </details>
               <h3>Watch delegated work in Herdr</h3>
               <p>With <a href="https://herdr.dev/">Herdr</a> installed, delegated agents get their own terminal panes. Attach to ACM&apos;s session:</p>
@@ -69,7 +66,7 @@ export default function Docs() {
               <p>Ask your agent in plain language. It calls the tools for you.</p>
               <h3>Continue another chat</h3>
               <blockquote>Use ACM to continue from Codex.</blockquote>
-              <p>If several chats match, pick one from the list your agent shows. It reads that chat and joins its task.</p>
+              <p>If several chats match, pick one from the list your agent shows. It reads that chat and joins its thread.</p>
               <h3>Delegate work</h3>
               <blockquote>Tell codex to add rate limiting to /api/login, cursor to write the tests, and opencode to update the docs.</blockquote>
               <p>Each agent gets a brief, claims the files it edits and reports back. ACM supports one agent of each kind per folder. The demo uses the current four integrations; that is not a permanent limit on compatibility.</p>
@@ -81,7 +78,7 @@ export default function Docs() {
 
             <section id="tools" className="doc-section doc-tools">
               <h2>MCP tools</h2>
-              <p>The eight tools below are calls your agent makes. Examples show the arguments; replace the project path and <code>acm_s_…</code> with your working directory and the session returned by ACM. Preview results are abbreviated for readability.</p>
+              <p>The seven tools below are calls your agent makes. ACM already knows which chat it is in, and <code>repo_path</code> defaults to the project folder. Preview results are abbreviated for readability.</p>
               <Tools />
             </section>
 
