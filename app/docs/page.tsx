@@ -46,15 +46,9 @@ export default function Docs() {
             <section id="setup" className="doc-section">
               <h2>Setup</h2>
               <p>You need <a href="https://nodejs.org">Node 24</a> or newer. Run:</p>
-              <Copy text="npx -y agent-cowork-memory setup" />
+              <Copy text="npx agent-cowork-memory setup" />
               <p>Setup adds ACM to Cursor, and to Codex, Claude Code, and OpenCode when they are installed. It says which it skipped. Installed one later? Run setup again. Restart your agents, and ACM is available in every project. Each agent starts ACM through npx, which runs the latest release when the npm registry answers within 3 seconds.</p>
               <p>Coming from 0.2? 0.3 starts a fresh database (<code>~/.agent-cowork-memory/acm.sqlite3</code>). 0.2&apos;s notes stay in <code>state.sqlite3</code>, untouched, and are not carried over.</p>
-              <details className="doc-details">
-                <summary>Configure the server manually</summary>
-                <p>Register this stdio server in your agent&apos;s MCP settings, replacing <code>codex</code> with your agent&apos;s name:</p>
-                <Copy text="npx -y agent-cowork-memory mcp --harness codex" />
-                <p>Current harness names are <code>codex</code>, <code>claude</code>, <code>cursor</code> and <code>opencode</code>.</p>
-              </details>
               <h3>Watch delegated work in Herdr</h3>
               <p>With <a href="https://herdr.dev/">Herdr</a> installed, delegated agents get their own terminal panes. Attach to ACM&apos;s session:</p>
               <Copy text="herdr session attach acm" />

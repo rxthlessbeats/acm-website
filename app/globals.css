@@ -743,10 +743,7 @@ em { font-style: italic; }
 .doc-section p code { font-size: 0.85em; color: var(--ink); overflow-wrap: anywhere; }
 .doc-section > .cmd { max-width: 100%; text-align: left; }
 .doc-section .cmd code { min-width: 0; overflow-wrap: anywhere; }
-.doc-section > pre, .doc-details pre { overflow-x: auto; padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; font: 12px/1.7 var(--mono); }
-.doc-details { margin-top: 24px; }
-.doc-details summary { color: var(--ink); cursor: pointer; }
-.doc-details .cmd { max-width: 100%; text-align: left; }
+.doc-section > pre { overflow-x: auto; padding: 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; font: 12px/1.7 var(--mono); }
 .doc-section blockquote { margin: 16px 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--claude); color: var(--ink); max-width: 65ch; }
 .doc-tools .tools-grid { margin-top: 40px; gap: 32px; }
 .doc-tools .tools-side { position: static; gap: 20px; }
@@ -782,10 +779,6 @@ em { font-style: italic; }
 .foot-install .cmd { max-width: 100%; justify-content: space-between; }
 .foot-install .cmd code { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: left; flex: 1; }
 .cmd-xl { font-size: clamp(15px, 1.6vw, 21px); padding: 20px 20px 20px 24px; border-radius: 16px; }
-.foot-alt { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 10px 16px; margin: 0; }
-.foot-alt dt { font: 11px var(--mono); color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; }
-.foot-alt dd { margin: 0; min-width: 0; }
-.foot-alt .cmd { width: 100%; font-size: 12.5px; padding: 10px 12px 10px 14px; background: transparent; }
 .foot-note { margin: 0; color: var(--faint); font-size: 14px; }
 .foot-links { display: flex; flex-wrap: wrap; gap: 28px; margin-top: clamp(56px, 7vw, 96px); font-size: 14px; color: var(--faint); }
 .foot-links a { color: var(--ink); text-decoration: none; }
@@ -850,8 +843,6 @@ em { font-style: italic; }
   .herdr .composer-text { flex-basis: 100%; }
   .herdr .send { margin-left: auto; }
   .hide-sm { display: none; }
-  .foot-alt { grid-template-columns: 1fr; gap: 6px; }
-  .foot-alt dd + dt { margin-top: 10px; }
   .logo-name { display: none; }
   .nav { gap: 12px; }
   .nav-links { gap: 12px; }

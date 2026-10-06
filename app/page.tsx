@@ -4,7 +4,7 @@ import { Mark } from "./Mark";
 import Switchboard from "./Switchboard";
 import { AGENTS, type AgentId } from "./scenarios";
 
-const INSTALL = "npx -y agent-cowork-memory setup";
+const INSTALL = "npx agent-cowork-memory setup";
 const GITHUB = "https://github.com/rxthlessbeats/agent-cowork-memory";
 const NPM = "https://www.npmjs.com/package/agent-cowork-memory";
 const ORDER: AgentId[] = ["claude", "codex", "cursor", "opencode"];
@@ -187,12 +187,6 @@ export default function Page() {
             </h2>
             <div className="foot-install">
               <Copy text={INSTALL} className="cmd-xl" />
-              <dl className="foot-alt">
-                <dt>manual</dt>
-                <dd>
-                  <Copy text="npx -y agent-cowork-memory mcp --harness claude" />
-                </dd>
-              </dl>
               <p className="foot-note">Needs Node 24 or newer. Setup adds ACM to every agent it finds. Restart them afterwards. <Link href="/docs#setup">Read the setup guide.</Link></p>
             </div>
           </div>
